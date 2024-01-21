@@ -1,3 +1,3 @@
 ## Rock Paper Scissors ✊•✋•✌️
 
-<img src="./screen.png">
+<img src="./banner.png">
