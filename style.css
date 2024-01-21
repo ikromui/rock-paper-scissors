@@ -98,8 +98,6 @@ body {
   background: var(--stuff);
   padding: 0 8px;
 }
-
-
 .results-selection {
   position: relative;
   opacity: 0.8;
@@ -108,12 +106,9 @@ body {
   padding: 10px;
   font-size: 20px;
 }
-
 .results-selection.winner {
   opacity: 1;
 }
-
-
 @media screen and (max-width: 600px) {
 
   .selections {
@@ -126,23 +121,10 @@ body {
   .selections .paper {
     margin-top: 0px;
   }
-
-  .selection {
-    background: var(--stuff);
-    border: none;
-    cursor: pointer;
-    height: 150px;
-    width: 150px;
-
-    border-radius: 50%;
-    padding: 35px;
-    transition: 0.2s ease-out;
-  }
 }
 
 @media screen and (max-width: 400px) {
   .result-title {
-    width: 100%;
     font-size: 1rem;
   }
 }
