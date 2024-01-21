@@ -26,12 +26,12 @@ body {
   top: -90%;
   height: 1500px;
   width: 1500px;
-  background: radial-gradient(#ffffff15, transparent, transparent);
+  background: radial-gradient(#ffffff16, transparent, transparent);
   border-radius: 50%;
 }
 
 .selections {
-  margin-top: 15rem;
+  margin-top: 30vh;
   gap: 3rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -154,6 +154,11 @@ body {
   .selections {
     margin-top: 4rem;
   }
+
+  .results {
+    top: 80vh;
+  }
+
 
   .result-title {
     font-size: 1rem;
