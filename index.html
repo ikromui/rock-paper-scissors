@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Papper Scissor</title>
+  <link rel="shortcut icon" href="./short.png" type="image/x-icon">
+  <!-- Style -->
+  <link rel="stylesheet" href="./style.css">
+  <!-- Js -->
+  <script src="./scripts.js" defer></script>
+</head>
+<body>
+  
+  <!-- RPS-Buttons -->
+  <div class="selections">
+    <div>
+      <button class="selection" data-selection="rock">
+        <img src="./rock.png" alt="rock">
+      </button>
+      <h1>Rock</h1>
+    </div>
+    <div class="paper">
+      <button class="selection" data-selection="papper">
+        <img src="./paper.png" alt="papper">
+      </button>
+      <h1>Paper</h1>
+    </div>
+    <div>
+      <button class="selection" data-selection="scissors">
+        <img src="./scissors.png" alt="scissors">
+      </button>
+      <h1>Scissors</h1>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div class="results">
+    <div class="result-title your">
+      You:
+      <span class="result-score" data-your-score>0</span>
+    </div>
+    <div class="result-title computer">
+      Computer:
+      <span class="result-score" data-computer-score>0</span>
+    </div>
+
+    <div class="results-section"></div>
+    <div class="results-section" data-final-column>
+    </div>
+  </div>
+
+</body>
+</html>

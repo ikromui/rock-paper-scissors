@@ -1,0 +1,148 @@
+:root {
+  --main: #3E8E7E;
+  --stuff: #FABB51;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: poppins;
+}
+
+.selections {
+  position: fixed;
+  margin-top: 40rem;
+  gap: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.selections .paper {
+  margin-top: 30px;
+}
+
+.selections h1 {
+  font-size: 1.1rem;
+  text-align: center;
+  color: #FAEDC6;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.selection {
+  background: var(--stuff);
+  border: none;
+  cursor: pointer;
+  height: 150px;
+  width: 150px;
+
+  border-radius: 50%;
+  padding: 35px;
+  transition: 0.2s ease-out;
+}
+
+.selection:hover {
+  transform: scale(1.1);
+}
+
+.selection:active {
+  transform: scale(1);
+  transition: 0.05s;
+}
+
+.selection img {
+  width: 100%;
+  max-height: 100px;
+  opacity: 0.8;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+
+/* RUSULTS */
+.results {
+  position: absolute;
+  top: 90vh;
+  display: grid;
+  max-width: 580px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: repeat(2, 1fr);
+  background: var(--main);
+}
+
+.result-title {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 8vh;
+  font-size: 2rem;
+  color: #fff;
+  text-transform: uppercase;
+  background: var(--main);
+  z-index: 2;
+  border-bottom: 2vh solid var(--stuff);
+}
+
+.result-title span {
+  background: var(--stuff);
+  padding: 0 8px;
+}
+
+
+.results-selection {
+  position: relative;
+  opacity: 0.8;
+  text-align: center;
+  background: #FAEDC6;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.results-selection.winner {
+  opacity: 1;
+}
+
+
+@media screen and (max-width: 600px) {
+
+  .selections {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .selections .paper {
+    margin-top: 0px;
+  }
+
+  .selection {
+    background: var(--stuff);
+    border: none;
+    cursor: pointer;
+    height: 150px;
+    width: 150px;
+
+    border-radius: 50%;
+    padding: 35px;
+    transition: 0.2s ease-out;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .result-title {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
