@@ -1,6 +1,7 @@
 :root {
-  --main: #3E8E7E;
-  --stuff: #FABB51;
+  --main: #252B48;
+  --stuff: #424769;
+  --overy: #61677A;
 }
 
 body {
@@ -15,12 +16,21 @@ body {
   font-family: poppins;
 }
 
-.selections {
+.shadow {
   position: fixed;
-  margin-top: 40rem;
+  top: -90%;
+  height: 1500px;
+  width: 1500px;
+  background: radial-gradient(#ffffff11, transparent, transparent);
+  border-radius: 50%;
+}
+
+.selections {
+  margin-top: 15rem;
   gap: 3rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  z-index: 1;
 }
 
 .selections .paper {
@@ -30,15 +40,16 @@ body {
 .selections h1 {
   font-size: 1.1rem;
   text-align: center;
-  color: #FAEDC6;
+  color: var(--overy);
   font-weight: 400;
   text-transform: uppercase;
 }
 
 .selection {
   background: var(--stuff);
-  border: none;
+  border: 4px solid #ddd;
   cursor: pointer;
+  border-bottom: 15px solid var(--main);
   height: 150px;
   width: 150px;
 
@@ -58,7 +69,7 @@ body {
 
 .selection img {
   width: 100%;
-  max-height: 100px;
+  max-height: 60px;
   opacity: 0.8;
   object-fit: contain;
   user-select: none;
@@ -84,7 +95,6 @@ body {
   top: 0;
   display: flex;
   align-items: center;
-  gap: 10px;
   height: 8vh;
   font-size: 2rem;
   color: #fff;
@@ -97,18 +107,22 @@ body {
 .result-title span {
   background: var(--stuff);
   padding: 0 8px;
+  margin-left: 10px;
 }
+
 .results-selection {
   position: relative;
   opacity: 0.8;
   text-align: center;
-  background: #FAEDC6;
+  background: var(--overy);
   padding: 10px;
   font-size: 20px;
 }
+
 .results-selection.winner {
   opacity: 1;
 }
+
 @media screen and (max-width: 600px) {
 
   .selections {
