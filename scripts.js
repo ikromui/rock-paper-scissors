@@ -3,20 +3,21 @@ const finalColumn = document.querySelector("[data-final-column]");
 const dataYourScore = document.querySelector("[data-your-score]");
 const dataComputerScore = document.querySelector("[data-computer-score]");
 
+
 SELECTIONS = [
   {
     name: "rock",
-    emoji: "✊",
+    emoji: "✊ Rock",
     beats: "scissors"
   },
   {
     name: "papper",
-    emoji: "✋",
+    emoji: "✋ Paper",
     beats: "rock"
   },
   {
     name: "scissors",
-    emoji: "✌️",
+    emoji: "✌️ Scissors",
     beats: "papper"
   }
 ]
@@ -33,10 +34,10 @@ function makeSelection(selection) {
   computerSelection = randomSelection()
   const yourWiner = isWinner(selection, computerSelection);
   const computerWiner = isWinner(computerSelection, selection);
-  
+
   addSelectionResult(computerSelection, computerWiner);
   addSelectionResult(selection, yourWiner);
-  
+
   if (yourWiner) incrementScore(dataYourScore)
   if (computerWiner) incrementScore(dataComputerScore)
   console.log(computerSelection);
@@ -52,7 +53,6 @@ function addSelectionResult(selection, winner) {
   div.classList.add("results-selection");
   if (winner) div.classList.add("winner");
   finalColumn.after(div);
-
 }
 
 
