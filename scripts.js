@@ -1,7 +1,7 @@
 const selectionButtons = document.querySelectorAll("[data-selection]");
 const finalColumn = document.querySelector("[data-final-column]");
 const dataYourScore = document.querySelector("[data-your-score]");
-const dataComputerScore = document.querySelector("[data-computer-score]");
+// const dataComputerScore = document.querySelector("[data-computer-score]");
 
 
 SELECTIONS = [
@@ -39,12 +39,12 @@ function makeSelection(selection) {
   addSelectionResult(selection, yourWiner);
 
   if (yourWiner) incrementScore(dataYourScore)
-  if (computerWiner) incrementScore(dataComputerScore)
+  // if (computerWiner) incrementScore(dataComputerScore);
   console.log(computerSelection);
 }
 
 function incrementScore(scoreSpan) {
-  scoreSpan.innerText = parseInt(scoreSpan.innerText) + 1;
+  scoreSpan.innerHTML = parseInt(scoreSpan.innerText) + 1;
 }
 
 function addSelectionResult(selection, winner) {
@@ -54,8 +54,6 @@ function addSelectionResult(selection, winner) {
   if (winner) div.classList.add("winner");
   finalColumn.after(div);
 }
-
-
 
 function isWinner(selection, opponentSelection) {
   return selection.beats === opponentSelection.name;

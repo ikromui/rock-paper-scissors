@@ -20,29 +20,27 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 30px;
 }
 
 .shadow {
   position: fixed;
-  top: -95%;
+  top: -90%;
   height: 1500px;
   width: 1500px;
-  background: radial-gradient(#ffffff18, transparent, transparent);
+  background: radial-gradient(#ffffff16, transparent, transparent);
   border-radius: 50%;
 }
 
 .selections {
-  margin-top: 8rem;
+  margin-top: 30vh;
   gap: 3rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   z-index: 1;
-  transition: 0.5s;
 }
 
 .selections .paper {
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .selections h1 {
@@ -58,121 +56,75 @@ body {
   border: 4px solid #ddd;
   cursor: pointer;
   border-bottom: 15px solid var(--main);
-  height: 155px;
-  width: 155px;
+  height: 150px;
+  width: 150px;
+
   border-radius: 50%;
   padding: 35px;
   transition: var(--trans);
   box-shadow: inset 0 10px 1px #252B4820;
 }
- .selection:hover {
+
+.selection:hover {
+  transform: scale(1.1);
   box-shadow: inset 0 12px 2px #252B4820;
 }
 
 .selection:active {
+  transform: scale(1);
   transition: 0.05s;
   box-shadow: inset 0 6px 0px #252B4820;
 }
 
 .selection:active img {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .selection img {
   transition: 0.1s;
   height: 55px;
   width: 55px;
-  opacity: 0.8;
+  opacity: 0.7;
   object-fit: contain;
   user-select: none;
   -webkit-user-drag: none;
 }
 
 
-
 /* RUSULTS */
 .results {
-  margin-top: 4rem;
-  border: 3px solid #ffffff40;
-  padding: 10px 10px 10px 25px;
-  max-width: 500px;
+  position: absolute;
+  top: 90vh;
+  display: grid;
+  max-width: 580px;
   width: 100%;
-  height: 110px;
-  display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 15px;
-}
-
-.results .title {
-  width: 10px;
-}
-
-.results h1 {
-  font-size: 1.7rem;
+  grid-template-columns: repeat(2, 1fr);
+  background: var(--main);
 }
 
 .result-title {
-  position: relative;
-  width: 130px;
-  height: 100%;
-  background: #fff;
-  border-radius: 10px;
+  position: sticky;
+  top: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  color: var(--overy);
-}
-
-.result-title h4 {
-  position: relative;
-  bottom: 10px;
-  font-size: 1.2rem;
-  height: 10px;
+  height: 8vh;
+  font-size: 2rem;
+  color: #fff;
   text-transform: uppercase;
+  background: var(--main);
+  z-index: 2;
+  border-bottom: 2vh solid var(--stuff);
 }
 
 .result-title span {
-  position: relative;
-  bottom: 20px;
-  font-size: 2.5rem;
-  color: var(--main);
+  background: var(--stuff);
+  padding: 0 8px;
+  margin-left: 10px;
 }
 
-.clear {
-  position: absolute;
-  bottom: 5px;
-  width: 20px;
-  background-color: transparent;
-  border: none;
-  left: 5px;
-}
-
-.clear svg {
-  width: 25px;
-  cursor: pointer;
-}
-
-
-
-/* RULES */
-.rules {
-  display: none;
-  position: fixed;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  overflow-y: scroll;
-  scroll-snap-type: mandatory;
-}
-
-.rule-section {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.rules .results-selection {
+.results-selection {
   position: relative;
   opacity: 0.8;
   text-align: center;
@@ -181,10 +133,41 @@ body {
   font-size: 20px;
 }
 
-.rules .results-selection.winner {
+.results-selection.winner {
   opacity: 1;
 }
 
+.clear {
+  position: absolute;
+  right: 3rem;
+  top: 2rem;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  gap: 5px;
+  padding: 0 10px;
+  background: var(--overy);
+  border: 1px solid azure;
+  border-radius: 8px;
+  color: var(--main);
+  cursor: pointer;
+  transition: var(--trans);
+  box-shadow: inset 4px 4px 0px #252B4820;
+}
+
+.clear:hover {
+  transform: scale(1.05);
+}
+
+.clear:active {
+  transform: scale(1);
+  transition: 0.05s;
+  box-shadow: inset 6px 6px 0px #252B4820;
+}
+
+.clear svg {
+  width: 20px;
+}
 
 @media screen and (max-width: 600px) {
   .selections {
