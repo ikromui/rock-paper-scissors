@@ -3,7 +3,7 @@
   --stuff: #424769;
   --overy: #61677A;
 
-  --trans: 0.2s ease-out;
+  --trans: 0.3s ease-out;
 }
 
 * {
@@ -30,6 +30,7 @@ body {
   width: 1500px;
   background: radial-gradient(#ffffff18, transparent, transparent);
   border-radius: 50%;
+  transition: var(--trans);
 }
 
 .selections {
@@ -65,7 +66,8 @@ body {
   transition: var(--trans);
   box-shadow: inset 0 10px 1px #252B4820;
 }
- .selection:hover {
+
+.selection:hover {
   box-shadow: inset 0 12px 2px #252B4820;
 }
 
@@ -120,23 +122,20 @@ body {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   color: var(--overy);
+  text-align: center;
 }
 
-.result-title h4 {
-  position: relative;
-  bottom: 10px;
+.result-title h2 {
+  margin-top: 4px;
   font-size: 1.2rem;
   height: 10px;
   text-transform: uppercase;
 }
 
 .result-title span {
-  position: relative;
-  bottom: 20px;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   color: var(--main);
 }
 
