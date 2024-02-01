@@ -1,59 +1,92 @@
 const selectionButtons = document.querySelectorAll("[data-selection]");
 const finalColumn = document.querySelector("[data-final-column]");
 const dataYourScore = document.querySelector("[data-your-score]");
+const selections = document.querySelector(".selections");
 // const dataComputerScore = document.querySelector("[data-computer-score]");
 
+const src1 = document.querySelector(".src1");
+const src2 = document.querySelector(".src2");
+const resultSection = document.querySelector(".result-section");
+const resultStatus = document.querySelector(".result-status");
+const playAgain = document.querySelector(".play-again");
 
-SELECTIONS = [
+let SELECTIONS = [
   {
     name: "rock",
-    emoji: "✊ Rock",
+    emoji: "https://raw.githubusercontent.com/ikromui/rock-paper-scissors/main/asstets/rock.png",
     beats: "scissors"
   },
   {
     name: "papper",
-    emoji: "✋ Paper",
+    emoji: "https://raw.githubusercontent.com/ikromui/rock-paper-scissors/main/asstets/paper.png",
     beats: "rock"
   },
   {
     name: "scissors",
-    emoji: "✌️ Scissors",
+    emoji: "https://raw.githubusercontent.com/ikromui/rock-paper-scissors/main/asstets/scissors.png",
     beats: "papper"
   }
 ]
+
+
 
 selectionButtons.forEach(selectionButton => {
   selectionButton.addEventListener("click", e => {
     const selectionName = selectionButton.dataset.selection;
     const selection = SELECTIONS.find(selection => selection.name === selectionName);
     makeSelection(selection)
+
+    document.querySelector("body").style = `
+      pointer-events: none;
+    `
+    selectionButton.classList.add("selectedButton")
+
+    setTimeout(() => {
+      resultSection.classList.add("Resultshow")
+      selections.classList.add("hide")
+
+      document.querySelector("body").style = `
+        pointer-events: unset;
+      `
+      setTimeout(() => {
+        resultSection.classList.add("Animation")
+      }, 1000);
+    }, 1400);
+  })
+  playAgain.addEventListener("click", e => {
+    resultSection.classList.remove("Animation")
+    resultSection.classList.remove("Resultshow")
+    selections.classList.remove("hide")
+    selectionButton.classList.remove("selectedButton")
   })
 })
+
+function addSelectionResult(selection, computerSelection, winner, computerWiner) {
+  src1.src = selection.emoji;
+  src2.src = computerSelection.emoji;
+  if (computerWiner) resultStatus.innerHTML = "Computer win";
+  if (winner) resultStatus.innerHTML = "You win";
+  if (computerWiner === winner) resultStatus.innerHTML = "Equal!"
+}
 
 function makeSelection(selection) {
   computerSelection = randomSelection()
   const yourWiner = isWinner(selection, computerSelection);
   const computerWiner = isWinner(computerSelection, selection);
 
-  addSelectionResult(computerSelection, computerWiner);
-  addSelectionResult(selection, yourWiner);
+  addSelectionResult(selection, computerSelection, yourWiner, computerWiner);
 
   if (yourWiner) incrementScore(dataYourScore)
-  // if (computerWiner) incrementScore(dataComputerScore);
   console.log(computerSelection);
 }
 
 function incrementScore(scoreSpan) {
-  scoreSpan.innerHTML = parseInt(scoreSpan.innerText) + 1;
+  setTimeout(() => {
+    scoreSpan.innerHTML = parseInt(scoreSpan.innerText) + 1;
+  }, 3000);
 }
 
-function addSelectionResult(selection, winner) {
-  const div = document.createElement("div");
-  div.innerHTML = selection.emoji;
-  div.classList.add("results-selection");
-  if (winner) div.classList.add("winner");
-  finalColumn.after(div);
-}
+
 
 function isWinner(selection, opponentSelection) {
   return selection.beats === opponentSelection.name;

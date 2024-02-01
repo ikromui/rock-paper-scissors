@@ -2,8 +2,12 @@
   --main: #252B48;
   --stuff: #424769;
   --overy: #61677A;
-
+  --hoverBorder: #dddddd88;
   --trans: 0.3s ease-out;
+
+  --maxWidth: 580px;
+
+  --scaleMin: 0.6;
 }
 
 * {
@@ -20,7 +24,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 30px;
+  padding: 0 10px;
+  z-index: -1;
 }
 
 .shadow {
@@ -33,9 +38,84 @@ body {
   transition: var(--trans);
 }
 
-.selections {
-  margin-top: 8rem;
+/* RESULT START */
+.result {
+  margin-top: 0.5rem;
+  height: 48vh;
+  max-width: var(--maxWidth);
+  max-height: 500px;
+  min-height: 100px;
   gap: 3rem;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  z-index: 1;
+  transition: 0.5s;
+}
+
+
+.result .you,
+.result .computer {
+  background: var(--stuff);
+  border: 4px solid #ddd;
+
+  border-bottom: 15px solid var(--main);
+  height: 80px;
+  width: 85px;
+  max-width: 120px;
+  border-radius: 50%;
+  padding: 35px;
+  transition: var(--trans);
+  box-shadow: inset 0 10px 1px #252B4820;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-center h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.result img {
+  width: 60px !important;
+}
+
+.play-again {
+  margin-top: 1rem;
+  cursor: pointer;
+  width: 100%;
+  padding: 14px;
+  z-index: 2;
+  background: var(--stuff);
+  border: none;
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+
+.play-again:hover {
+  transition: 0.3s !important;
+  border: 1px solid var(--hoverBorder);
+}
+
+.play-again:active {
+  transform: scale(0.95) !important;
+}
+
+/* RESULT END */
+
+
+
+/* SELECTIONS START */
+.selections {
+  margin-top: 0.5rem;
+  height: 48vh;
+  max-width: var(--maxWidth);
+  max-height: 500px;
+  min-height: 100px;
+  gap: 3rem;
+  align-items: center;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   z-index: 1;
@@ -68,11 +148,13 @@ body {
 }
 
 .selection:hover {
+  transform: scale(1.04);
   box-shadow: inset 0 12px 2px #252B4820;
 }
 
 .selection:active {
   transition: 0.05s;
+  transform: scale(1);
   box-shadow: inset 0 6px 0px #252B4820;
 }
 
@@ -90,15 +172,20 @@ body {
   -webkit-user-drag: none;
 }
 
+/* SELECTIONS END */
 
+/* SCORE SCREEN START */
+.score {
+  max-width: var(--maxWidth);
+  width: 100%;
+  min-height: 130px;
+  height: 20vh;
+  margin-top: 5vh;
+}
 
-/* RUSULTS */
-.results {
-  margin-top: 4rem;
+.score section {
   border: 3px solid #ffffff40;
   padding: 10px 10px 10px 25px;
-  max-width: 500px;
-  width: 100%;
   height: 110px;
   display: flex;
   align-items: center;
@@ -106,15 +193,15 @@ body {
   border-radius: 15px;
 }
 
-.results .title {
-  width: 10px;
+.score .title {
+  max-width: 100px;
 }
 
-.results h1 {
+.score h1 {
   font-size: 1.7rem;
 }
 
-.result-title {
+.score-title {
   position: relative;
   width: 130px;
   height: 100%;
@@ -127,89 +214,207 @@ body {
   text-align: center;
 }
 
-.result-title h2 {
+.score-title h2 {
   margin-top: 4px;
   font-size: 1.2rem;
   height: 10px;
   text-transform: uppercase;
 }
 
-.result-title span {
+.score-count span {
   font-size: 2.8rem;
   color: var(--main);
 }
 
-.clear {
-  position: absolute;
+
+/* .clear {
   bottom: 5px;
-  width: 20px;
-  background-color: transparent;
+  width: 30px;
   border: none;
-  left: 5px;
+  right: 5px;
+  background: #fff;
+  z-index: 1;
 }
 
 .clear svg {
   width: 25px;
   cursor: pointer;
-}
+} */
 
-
-
-/* RULES */
-.rules {
-  display: none;
-  position: fixed;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  overflow-y: scroll;
-  scroll-snap-type: mandatory;
-}
-
-.rule-section {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.rules .results-selection {
-  position: relative;
-  opacity: 0.8;
-  text-align: center;
-  background: var(--overy);
-  padding: 10px;
-  font-size: 20px;
-}
-
-.rules .results-selection.winner {
+.show {
+  transform: scale(1);
   opacity: 1;
 }
 
+/* SCORE SCREEN END */
 
-@media screen and (max-width: 600px) {
-  .selections {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 8rem;
+
+.s1 {
+  animation: FadeOut1 0.6s ease-out;
+}
+
+.s2 {
+  animation: FadeOut1 0.8s ease-out;
+}
+
+.s3 {
+  animation: FadeOut1 1.2s ease-out;
+}
+
+@keyframes FadeOut1 {
+  0% {
+    transform: translatey(-10vh);
   }
 
-  .selections .paper {
-    margin-top: 0px;
+  40% {
+    transform: translatey(2vh);
+  }
+
+  100% {
+    transform: translatey(0vh);
+  }
+}
+
+/* ANIMATIONS */
+
+.hide {
+  display: none !important;
+}
+
+
+
+.selectedButton {
+  animation: test 1s ease-out;
+  opacity: 0;
+}
+
+@keyframes test {
+  0% {
+    opacity: 1;
+  }
+
+  20% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(0.8);
+  }
+
+  80% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+}
+
+.result-section {
+  display: none;
+}
+
+
+.result-section.Resultshow {
+  display: block;
+}
+
+
+.result-status,
+.play-again {
+  transform: scale(0.9);
+  opacity: 0;
+  transition: 0.5s ease-out;
+}
+
+.Animation .result-status {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.Animation .play-again {
+  transform: scale(1);
+  transition-delay: 0.5s;
+  opacity: 1;
+}
+
+.result-section.Resultshow .you,
+.result-section.Resultshow .computer {
+  animation: FadeOut 0.5s ease-out;
+}
+
+
+@keyframes FadeOut {
+  0% {
+    opacity: 0;
+    transform: scale(.4);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* ANIMATIONS END */
+
+/* MEDIA */
+@media screen and (max-width: 600px) {
+
+  .selections {
+    gap: 1rem;
+  }
+
+  .result {
+    gap: 1rem;
+    display: flex;
+  }
+
+  .result .you,
+  .result .computer {
+    height: 40px;
+    width: 45px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .selection {
+    border: 2px solid #ddd;
+    border-bottom: 8px solid var(--main);
+    height: 110px;
+    width: 110px;
+    padding: 0;
   }
 }
 
 @media screen and (max-width: 400px) {
   .selections {
-    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
   }
 
-  .results {
-    top: 80vh;
+  .selection {
+    height: 140px;
+    width: 140px;
   }
 
+  .selections .paper {
+    margin-top: 0px;
+  }
 
-  .result-title {
-    font-size: 1rem;
+  .result {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .result .you,
+  .result .computer {
+    height: 50px;
+    width: 55px;
   }
 }
+
+/* MEDIA END */
