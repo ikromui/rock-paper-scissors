@@ -64,9 +64,9 @@ selectionButtons.forEach(selectionButton => {
 function addSelectionResult(selection, computerSelection, winner, computerWiner) {
   src1.src = selection.emoji;
   src2.src = computerSelection.emoji;
-  if (computerWiner) resultStatus.innerHTML = "Computer win";
-  if (winner) resultStatus.innerHTML = "You win";
-  if (computerWiner === winner) resultStatus.innerHTML = "Equal!"
+  if (computerWiner) resultStatus.innerHTML = "You lost";
+  if (winner) resultStatus.innerHTML = "You won";
+  if (computerWiner === winner) resultStatus.innerHTML = "Draw!"
 }
 
 function makeSelection(selection) {
