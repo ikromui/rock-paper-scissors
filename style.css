@@ -80,6 +80,7 @@ body {
 
 .result img {
   width: 60px !important;
+  filter: invert(2);
 }
 
 .play-again {

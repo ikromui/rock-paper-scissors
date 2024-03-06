@@ -13,17 +13,17 @@ const playAgain = document.querySelector(".play-again");
 let SELECTIONS = [
   {
     name: "rock",
-    emoji: "https://raw.githubusercontent.com/ikromui/rock-paper-scissors/main/asstets/rock.png",
+    emoji: "https://github.com/ikromui/rock-paper-scissors/blob/main/assets/rock.png?raw=true",
     beats: "scissors"
   },
   {
     name: "papper",
-    emoji: "https://raw.githubusercontent.com/ikromui/rock-paper-scissors/main/asstets/paper.png",
+    emoji: "https://github.com/ikromui/rock-paper-scissors/blob/main/assets/paper.png?raw=true",
     beats: "rock"
   },
   {
     name: "scissors",
-    emoji: "https://raw.githubusercontent.com/ikromui/rock-paper-scissors/main/asstets/scissors.png",
+    emoji: "https://github.com/ikromui/rock-paper-scissors/blob/main/assets/scissors.png?raw=true",
     beats: "papper"
   }
 ]
@@ -51,7 +51,7 @@ selectionButtons.forEach(selectionButton => {
       setTimeout(() => {
         resultSection.classList.add("Animation")
       }, 1000);
-    }, 1400);
+    }, 1200);
   })
   playAgain.addEventListener("click", e => {
     resultSection.classList.remove("Animation")
