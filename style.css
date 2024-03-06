@@ -170,6 +170,7 @@ body {
   object-fit: contain;
   user-select: none;
   -webkit-user-drag: none;
+  filter: invert(2);
 }
 
 /* SELECTIONS END */
