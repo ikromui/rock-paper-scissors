@@ -65,7 +65,11 @@ function addSelectionResult(selection, computerSelection, winner, computerWiner)
   src1.src = selection.emoji;
   src2.src = computerSelection.emoji;
   if (computerWiner) resultStatus.innerHTML = "You lost";
+<<<<<<< HEAD
   if (winner) resultStatus.innerHTML = "You won";
+=======
+  if (winner) resultStatus.innerHTML = "You win";
+>>>>>>> dd92864af62c0fc45e9b3aa48e0be65955b7e782
   if (computerWiner === winner) resultStatus.innerHTML = "Draw!"
 }
 
